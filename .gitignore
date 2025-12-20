@@ -1,0 +1,28 @@
+# Plugin manager lock file
+# Uncomment the line below if you want different plugin versions on different machines
+# lazy-lock.json
+
+# Lazy.nvim plugin directory
+.lazy/
+
+# Undo history
+undodir/
+*.un~
+
+# Swap files
+*.swp
+*.swo
+*~
+
+# macOS specific
+.DS_Store
+
+# Log files
+*.log
+
+# LSP logs
+lsp.log
+
+# Spell files
+*.spl
+*.sug
