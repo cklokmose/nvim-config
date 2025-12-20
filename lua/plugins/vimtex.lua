@@ -5,7 +5,15 @@ return {
     lazy = false,
     config = function()
       -- VimTeX compiler/viewer opsætning
-      vim.g.vimtex_view_method = "sioyek"
+      -- Detect OS and set viewer accordingly
+      if vim.fn.has("mac") == 1 then
+        vim.g.vimtex_view_method = "general"
+        vim.g.vimtex_view_general_viewer = "open"
+        vim.g.vimtex_view_general_options = "-a Preview"
+      else
+        vim.g.vimtex_view_method = "sioyek"
+      end
+      
       vim.g.vimtex_compiler_progname = "nvr"
       vim.g.vimtex_compiler_latexmk_engines = { _ = "-lualatex" }
 
