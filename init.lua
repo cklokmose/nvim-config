@@ -43,9 +43,10 @@ if vim.fn.filereadable(statusline_file) == 1 then
   dofile(statusline_file)
 end
 
-require "nvchad.options"
-require "nvchad.autocmds"
+-- Safely load NVChad modules (they may not exist on first install)
+pcall(require, "nvchad.options")
+pcall(require, "nvchad.autocmds")
 
 vim.schedule(function()
-  require "nvchad.mappings"
+  pcall(require, "nvchad.mappings")
 end)
