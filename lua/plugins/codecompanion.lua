@@ -8,16 +8,13 @@ return {
       "ravitemer/mcphub.nvim",
     },
     config = function()
-      -- Copilot aktiv i alle buffere (inkl. chat)
       vim.g.copilot_filetypes = { ["*"] = true }
 
       require("codecompanion").setup({
-        -- ✅ MCPHub integreres som en EXTENSION (dette er den dokumenterede måde)
         extensions = {
           mcphub = {
             callback = "mcphub.extensions.codecompanion",
             opts = {
-              -- valgfrit, men nyttigt:
               make_vars = true,           -- lav #variables ud fra MCP resources
               make_slash_commands = true, -- lav /commands ud fra MCP prompts
               show_result_in_chat = true, -- vis tool-output i chat-bufferen
@@ -25,18 +22,16 @@ return {
           },
         },
 
-        -- ✅ Brug adapter-navn direkte (Copilot er indbygget)
         strategies = {
           chat = {
             adapter = {
               name = "copilot",
-              model = "claude-sonnet-4.5", -- vælg din copilot-model her
-            },
+              model = "claude-sonnet-4.5",            },
           },
           inline = {
             adapter = {
               name = "copilot",
-              model = "gpt-4.1",
+              model = "claude-sonnet-4.5",
             },
           },
           agent = {
@@ -47,7 +42,6 @@ return {
           },
         },
 
-        -- Behold Tavily som separat tool
         tools = {
           web_search = {
             provider = "tavily",
@@ -63,7 +57,6 @@ return {
           },
         },
 
-        -- Små UI-ting
         display = {
           chat = {
             show_tools_processing = true,
@@ -71,7 +64,6 @@ return {
           border = "rounded",
         },
 
-        -- Slå detaljeret log til mens vi tester
         opts = {
           log_level = "TRACE",
         },
