@@ -5,6 +5,13 @@ return {
     opts = function(_, opts)
       local api = require("nvim-tree.api")
 
+      -- Disable syncing root with cwd to keep tree root independent
+      opts.sync_root_with_cwd = false
+      opts.respect_buf_cwd = false
+      opts.update_focused_file = opts.update_focused_file or {}
+      opts.update_focused_file.enable = true
+      opts.update_focused_file.update_root = false
+
       local original_on_attach = opts.on_attach
 
       opts.on_attach = function(bufnr)
