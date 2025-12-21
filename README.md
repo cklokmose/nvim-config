@@ -59,7 +59,7 @@ nvim
 - **Editing**: nvim-surround, nvim-autopairs, undotree
 - **File Explorer**: nvim-tree and Oil.nvim
 - **Fuzzy Finder**: Telescope
-- **Git Integration**: gitsigns
+- **Git Integration**: gitsigns, LazyGit
 
 ## Installed Plugins
 
@@ -127,6 +127,11 @@ nvim
 | `<leader>e` | N | Focus nvim-tree |
 | `.` | N | Re-roots the nvim-tree to the current directory |
 | `-` | N | Open Oil.nvim (parent directory) |
+
+### Git
+| Key | Mode | Description |
+|-----|------|-------------|
+| `<leader>lg` | N | Open LazyGit |
 
 ### Telescope (NVChad Defaults)
 | Key | Mode | Description |
