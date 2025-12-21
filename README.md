@@ -125,6 +125,7 @@ nvim
 |-----|------|-------------|
 | `<C-n>` | N | Toggle nvim-tree |
 | `<leader>e` | N | Focus nvim-tree |
+| `.` | N | Re-roots the nvim-tree to the current directory |
 | `-` | N | Open Oil.nvim (parent directory) |
 
 ### Telescope (NVChad Defaults)
