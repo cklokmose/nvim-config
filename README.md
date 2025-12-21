@@ -179,6 +179,7 @@ nvim
 | `æll` | N | Jump to latest result in log |
 | `ælr` | N | Soft reset log (clear contents) |
 | `ælR` | N | Hard reset log (delete buffer) |
+| `æcr` | N | Restart the REPL |
 | `K` | N | Look up documentation |
 | `ægd` | N | Go to definition |
 | `:ConjureSchool` | N | Start interactive tutorial |
