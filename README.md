@@ -74,6 +74,7 @@ nvim
 - **nvim-lspconfig** - LSP configuration (TeXLab enabled)
 - **mason.nvim** - LSP/DAP/linter/formatter installer
 - **vimtex** - LaTeX editing and compilation
+- **conjure** - Interactive REPL for JavaScript (Node.js), Clojure, Fennel, and other languages
 
 ### Navigation & Motion
 - **flash.nvim** - Quick navigation with labels
@@ -154,6 +155,37 @@ nvim
 | `<leader>lk` | N | Stop compilation |
 
 *Note: These keymaps only work in `.tex` files*
+
+### Conjure (JavaScript & REPL)
+| Key | Mode | Description |
+|-----|------|-------------|
+| `æee` | N | Evaluate current form under cursor |
+| `æer` | N | Evaluate root form |
+| `æew` | N | Evaluate word under cursor |
+| `æe!` | N | Evaluate and replace form with result |
+| `æef` | N | Evaluate file from disk |
+| `æeb` | N | Evaluate entire buffer |
+| `æem{mark}` | N | Evaluate form at mark (e.g., `æemF`) |
+| `æE` | V | Evaluate visual selection |
+| `æE{motion}` | N | Evaluate motion (e.g., `æE2j`) |
+| `æece` | N | Eval current form, insert result as comment |
+| `æecr` | N | Eval root form, insert result as comment |
+| `æecw` | N | Eval word, insert result as comment |
+| `æls` | N | Open log in horizontal split |
+| `ælv` | N | Open log in vertical split |
+| `ælt` | N | Open log in new tab |
+| `æle` | N | Open log in current window |
+| `ælq` | N | Close all visible log windows |
+| `æll` | N | Jump to latest result in log |
+| `ælr` | N | Soft reset log (clear contents) |
+| `ælR` | N | Hard reset log (delete buffer) |
+| `K` | N | Look up documentation |
+| `ægd` | N | Go to definition |
+| `:ConjureSchool` | N | Start interactive tutorial |
+| `:ConjureEval` | N | Evaluate code (accepts range) |
+| `:ConjureConnect` | N | Connect to REPL |
+
+*Note: `æ` is the localleader key. These keymaps work in JavaScript (`.js`), Clojure, Fennel, and other supported files*
 
 ### LSP (NVChad Defaults)
 | Key | Mode | Description |
@@ -238,6 +270,54 @@ Install additional servers via `:Mason`
   - **Linux**: Sioyek
 - **Features**: Word wrap and line break enabled for `.tex` files
 
+## Conjure Workflow (JavaScript & REPL)
+
+### JavaScript (Node.js)
+
+1. Open a JavaScript file (`.js`)
+2. Conjure automatically starts a Node.js REPL in the background
+3. Use `æee` to evaluate code under your cursor
+4. Results appear in the log buffer (open with `æls`) or HUD
+5. Evaluate selections with `æE` in visual mode
+
+**Example workflow:**
+```javascript
+// Evaluate this line with æee
+const result = 1 + 2;
+
+// Evaluate this function with æee
+function hello(name) {
+  return `Hello, ${name}!`;
+}
+
+// Evaluate and see result: æew
+hello("World");
+
+// Evaluate entire file: æef
+```
+
+### Other Languages (Clojure, Fennel, etc.)
+
+1. Open a supported file (`.clj`, `.fnl`, etc.)
+2. Conjure automatically connects to your REPL
+3. Use `æee` to evaluate forms
+4. Results appear in log or HUD
+
+### Quick Start
+
+- **Evaluate code**: Place cursor on code and press `æee`
+- **See results**: Press `æls` to open log in split, or results show in HUD
+- **Evaluate selection**: Select code in visual mode and press `æE`
+- **Evaluate file**: Press `æef` to load entire file into REPL
+- **Interactive tutorial**: Run `:ConjureSchool`
+
+### Conjure Configuration
+
+- **Localleader**: `æ` (Danish keyboard friendly)
+- **Log**: HUD (floating window) by default, persistent log available
+- **Supported languages**: JavaScript (Node.js), Clojure, Fennel, Janet, Hy, Scheme, Racket, Common Lisp, Python, Lua, Rust, and more
+- **REPL**: Automatically starts Node.js for JavaScript, connects to nREPL for Clojure, or stdio REPLs for other languages
+
 ## UI Configuration
 
 ### Theme: Catppuccin
@@ -268,6 +348,7 @@ Install additional servers via `:Mason`
 │   └── plugins/               # Custom plugin configurations
 │       ├── init.lua           # Plugin loader (empty placeholder)
 │       ├── codecompanion.lua  # AI assistant config
+│       ├── conjure.lua        # JavaScript/Clojure REPL
 │       ├── copilot.lua        # GitHub Copilot
 │       ├── flash.lua          # Navigation plugin
 │       ├── lspconfig.lua      # LSP setup (TeXLab)
@@ -333,6 +414,13 @@ Add to individual plugin configs in `lua/plugins/` using the `keys` table or cre
 - `:VimtexClean` - Clean auxiliary files
 - `:VimtexView` - Open PDF viewer
 
+### Conjure (REPL)
+- `:ConjureSchool` - Interactive tutorial
+- `:ConjureEval <code>` - Evaluate code string
+- `:ConjureConnect [host] [port]` - Connect to REPL
+- `:ConjureClientState` - Get/set client state
+- `:help conjure` - Full Conjure documentation
+
 ### AI
 - `:Copilot status` - Check Copilot status
 - `:Copilot setup` - Setup Copilot authentication
@@ -348,6 +436,7 @@ Add to individual plugin configs in `lua/plugins/` using the `keys` table or cre
 - [NVChad Documentation](https://nvchad.com/)
 - [Neovim Documentation](https://neovim.io/doc/)
 - [VimTeX Documentation](https://github.com/lervag/vimtex)
+- [Conjure Documentation](https://github.com/Olical/conjure)
 - [CodeCompanion Documentation](https://github.com/olimorris/codecompanion.nvim)
 - [Flash.nvim Documentation](https://github.com/folke/flash.nvim)
 - [Mason Registry](https://mason-registry.dev/registry/list)

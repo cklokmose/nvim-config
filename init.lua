@@ -1,5 +1,6 @@
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/nvchad/base46/"
 vim.g.mapleader = " "
+vim.g.maplocalleader = "æ"
 
 -- Create a safe dofile wrapper for base46 cache
 local original_dofile = dofile
