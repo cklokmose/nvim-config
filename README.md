@@ -63,6 +63,9 @@ nvim
 
 ## Installed Plugins
 
+### Note-taking & Knowledge Management
+- **telekasten.nvim** - Zettelkasten note-taking with daily notes and backlinks
+
 ### AI & Completion
 - **copilot.vim** - GitHub Copilot integration
 - **codecompanion.nvim** - AI coding assistant with Claude & GPT-4
@@ -132,6 +135,15 @@ nvim
 | Key | Mode | Description |
 |-----|------|-------------|
 | `<leader>lg` | N | Open LazyGit |
+
+### Telekasten (Note-taking)
+| Key | Mode | Description |
+|-----|------|-------------|
+| `<leader>td` | N | Go to today's daily note |
+| `<leader>tn` | N | Create new note |
+| `<leader>tb` | N | Show backlinks |
+| `<leader>tf` | N | Find notes |
+| `<leader>tl` | N | Follow link under cursor |
 
 ### Telescope (NVChad Defaults)
 | Key | Mode | Description |
@@ -362,6 +374,7 @@ hello("World");
 │       ├── mcphub.lua         # MCP hub config
 │       ├── oil.lua            # Buffer-based file explorer
 │       ├── surround.lua       # Surround plugin
+│       ├── telekasten.lua     # Zettelkasten note-taking
 │       ├── undotree.lua       # Undo history visualizer
 │       └── vimtex.lua         # LaTeX support
 └── README.md                   # This file
