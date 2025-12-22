@@ -16,7 +16,7 @@ return {
         auto_set_filetype = false,
         take_over_my_home = false,
 
-        dailies = "scratch",
+        dailies = "dailies",
         weeklies = nil,
 
         templates = nil,
