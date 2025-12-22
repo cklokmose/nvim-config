@@ -65,6 +65,7 @@ nvim
 
 ### Note-taking & Knowledge Management
 - **telekasten.nvim** - Zettelkasten note-taking with daily notes and backlinks
+- **markview.nvim** - Markdown preview and rendering in Neovim
 
 ### AI & Completion
 - **copilot.vim** - GitHub Copilot integration
@@ -144,6 +145,12 @@ nvim
 | `<leader>tb` | N | Show backlinks |
 | `<leader>tf` | N | Find notes |
 | `<leader>tl` | N | Follow link under cursor |
+
+### Markview (Markdown Preview)
+| Key | Mode | Description |
+|-----|------|-------------|
+| `<leader>mt` | N | Toggle Markview |
+| `<leader>ms` | N | Toggle Markview Split |
 
 ### Telescope (NVChad Defaults)
 | Key | Mode | Description |
@@ -371,6 +378,7 @@ hello("World");
 │       ├── copilot.lua        # GitHub Copilot
 │       ├── flash.lua          # Navigation plugin
 │       ├── lspconfig.lua      # LSP setup (TeXLab)
+│       ├── markview.lua       # Markdown preview
 │       ├── mcphub.lua         # MCP hub config
 │       ├── oil.lua            # Buffer-based file explorer
 │       ├── surround.lua       # Surround plugin
