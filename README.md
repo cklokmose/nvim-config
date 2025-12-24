@@ -105,6 +105,7 @@ nvim
 ## Keybindings Cheatsheet
 
 ### General (NVChad Defaults)
+
 | Key | Mode | Description |
 |-----|------|-------------|
 | `<Space>` | N | Leader key |
@@ -116,6 +117,7 @@ nvim
 | `<leader>x` | N | Close buffer |
 
 ### Flash Navigation
+
 | Key | Mode | Description |
 |-----|------|-------------|
 | `s` | N/X/O | Flash jump |
@@ -125,6 +127,7 @@ nvim
 | `<C-s>` | C | Toggle Flash Search |
 
 ### File Management
+
 | Key | Mode | Description |
 |-----|------|-------------|
 | `<C-n>` | N | Toggle nvim-tree |
@@ -133,11 +136,13 @@ nvim
 | `-` | N | Open Oil.nvim (parent directory) |
 
 ### Git
+
 | Key | Mode | Description |
 |-----|------|-------------|
 | `<leader>lg` | N | Open LazyGit |
 
 ### Telekasten (Note-taking)
+
 | Key | Mode | Description |
 |-----|------|-------------|
 | `<leader>td` | N | Go to today's daily note |
@@ -147,12 +152,14 @@ nvim
 | `<leader>tl` | N | Follow link under cursor |
 
 ### Markview (Markdown Preview)
+
 | Key | Mode | Description |
 |-----|------|-------------|
 | `<leader>mt` | N | Toggle Markview |
 | `<leader>ms` | N | Toggle Markview Split |
 
 ### Telescope (NVChad Defaults)
+
 | Key | Mode | Description |
 |-----|------|-------------|
 | `<leader>ff` | N | Find files |
@@ -166,6 +173,7 @@ nvim
 | `<leader>gt` | N | Git status |
 
 ### AI Assistants
+
 | Key | Mode | Description |
 |-----|------|-------------|
 | `<leader>cc` | N | Open CodeCompanion chat |
@@ -173,6 +181,7 @@ nvim
 | `:Copilot` | N | Copilot commands |
 
 ### LaTeX (VimTeX)
+
 | Key | Mode | Description |
 |-----|------|-------------|
 | `<leader>ll` | N | Start/toggle compilation |
@@ -182,6 +191,7 @@ nvim
 *Note: These keymaps only work in `.tex` files*
 
 ### Conjure (JavaScript & REPL)
+
 | Key | Mode | Description |
 |-----|------|-------------|
 | `æee` | N | Evaluate current form under cursor |
@@ -214,6 +224,7 @@ nvim
 *Note: `æ` is the localleader key. These keymaps work in JavaScript (`.js`), Clojure, Fennel, and other supported files*
 
 ### LSP (NVChad Defaults)
+
 | Key | Mode | Description |
 |-----|------|-------------|
 | `gD` | N | Go to declaration |
@@ -228,11 +239,13 @@ nvim
 | `]d` | N | Next diagnostic |
 
 ### Undo History
+
 | Key | Mode | Description |
 |-----|------|-------------|
 | `<leader>u` | N | Toggle undotree |
 
 ### Surround (nvim-surround)
+
 | Key | Mode | Description |
 |-----|------|-------------|
 | `ys{motion}{char}` | N | Add surrounding |
@@ -243,6 +256,7 @@ nvim
 *Examples: `ysiw"` - surround word with quotes, `ds"` - delete quotes, `cs"'` - change quotes to single quotes*
 
 ### Commenting (NVChad)
+
 | Key | Mode | Description |
 |-----|------|-------------|
 | `<leader>/` | N/V | Toggle comment |
