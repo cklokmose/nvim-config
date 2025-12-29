@@ -48,6 +48,9 @@ end
 pcall(require, "nvchad.options")
 pcall(require, "nvchad.autocmds")
 
+-- Load custom options (must be after nvchad.options)
+pcall(require, "options")
+
 vim.schedule(function()
   pcall(require, "nvchad.mappings")
 end)

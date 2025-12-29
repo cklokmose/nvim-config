@@ -27,12 +27,4 @@ M.ui = {
   telescope = { style = "borderless" }, -- borderless / bordered
 }
 
-vim.api.nvim_set_hl(0, "NormalWhite", { fg = "#ffffff" })
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "markdown", "latex", "tex", "codecompanion" },
-  callback = function()
-    vim.wo.winhighlight = "Normal:NormalWhite,NormalFloat:NormalWhite,NormalNC:NormalWhite"
-  end,
-})
-
 return M
