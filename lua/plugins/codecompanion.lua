@@ -15,18 +15,19 @@ return {
           mcphub = {
             callback = "mcphub.extensions.codecompanion",
             opts = {
-              make_vars = true,           -- lav #variables ud fra MCP resources
-              make_slash_commands = true, -- lav /commands ud fra MCP prompts
-              show_result_in_chat = true, -- vis tool-output i chat-bufferen
+              make_vars = true,
+              make_slash_commands = true,
+              show_result_in_chat = true,
             },
           },
         },
 
-        strategies = {
+        interactions = {
           chat = {
             adapter = {
               name = "copilot",
-              model = "claude-sonnet-4.5",            },
+              model = "claude-sonnet-4.5",
+            },
           },
           inline = {
             adapter = {
@@ -34,12 +35,7 @@ return {
               model = "claude-sonnet-4.5",
             },
           },
-          agent = {
-            adapter = {
-              name = "copilot",
-              model = "claude-sonnet-4.5",
-            },
-          },
+
         },
 
         tools = {
