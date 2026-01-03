@@ -126,6 +126,19 @@ nvim
 | `R` | O/X | Treesitter Search |
 | `<C-s>` | C | Toggle Flash Search |
 
+### Wrapped Line Navigation
+
+| Key | Mode | Description |
+|-----|------|-------------|
+| `<Alt-h>` | N/V/I | Move left one character |
+| `<Alt-j>` | N/V/I | Move down one display line |
+| `<Alt-k>` | N/V/I | Move up one display line |
+| `<Alt-l>` | N/V/I | Move right one character |
+| `<Alt-Left>` | N/V/I | Move left one character |
+| `<Alt-Down>` | N/V/I | Move down one display line |
+| `<Alt-Up>` | N/V/I | Move up one display line |
+| `<Alt-Right>` | N/V/I | Move right one character |
+
 ### File Management
 
 | Key | Mode | Description |
