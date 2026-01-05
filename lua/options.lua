@@ -12,6 +12,14 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- Auto command specifically for .txt files (not all text filetypes)
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*.txt",
+  callback = function()
+    vim.wo.winhighlight = "Normal:NormalWhite,NormalFloat:NormalWhite,NormalNC:NormalWhite"
+  end,
+})
+
 -- Navigate with Alt+hjkl and Alt+arrows
 -- Allows holding Alt for navigation in wrapped text
 
