@@ -191,6 +191,7 @@ nvim
 |-----|------|-------------|
 | `<leader>cc` | N | Open CodeCompanion chat |
 | `<Tab>` | I | Accept Copilot suggestion |
+| `<leader>ct` | N | Toggle auto completion (disabled by default) |
 | `:Copilot` | N | Copilot commands |
 
 ### LaTeX (VimTeX)
