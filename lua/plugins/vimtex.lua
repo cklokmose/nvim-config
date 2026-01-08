@@ -15,7 +15,7 @@ return {
       end
       
       vim.g.vimtex_compiler_progname = "nvr"
-      vim.g.vimtex_compiler_latexmk_engines = { _ = "-lualatex" }
+      vim.g.vimtex_compiler_latexmk_engines = { _ = "-xelatex" }
 
       -- Alt sker når en .tex-fil åbnes
       vim.api.nvim_create_autocmd("FileType", {
