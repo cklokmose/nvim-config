@@ -50,6 +50,9 @@ return {
     map("n", "<leader>tl", telekasten.follow_link,
       vim.tbl_extend("force", opts, { desc = "Telekasten: follow link" }))
 
+    map("n", "<leader>ts", telekasten.search_notes,
+      vim.tbl_extend("force", opts, { desc = "Telekasten: search notes"}))
+
     end,
   },
 }
