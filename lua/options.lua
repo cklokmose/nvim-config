@@ -9,6 +9,8 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = { "markdown", "latex", "tex", "codecompanion" },
   callback = function()
     vim.wo.winhighlight = "Normal:NormalWhite,NormalFloat:NormalWhite,NormalNC:NormalWhite"
+    vim.api.nvim_set_hl(0, "MarkviewPalette1Fg", { fg = "#ffffff" })
+    vim.api.nvim_set_hl(0, "MarkviewPalette2Fg", { fg = "#ffffff" })
   end,
 })
 
@@ -19,6 +21,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
     vim.wo.winhighlight = "Normal:NormalWhite,NormalFloat:NormalWhite,NormalNC:NormalWhite"
   end,
 })
+
 
 -- Command to toggle autocomplete
 local map = vim.keymap.set
