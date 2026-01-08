@@ -170,6 +170,8 @@ nvim
 | `<leader>tb` | N | Show backlinks |
 | `<leader>tf` | N | Find notes |
 | `<leader>tl` | N | Follow link under cursor |
+| `<leader>cal`| N | Open calendar in vertical split |
+| `<leader>caL`| N | Open calendar in horisontal split | 
 
 ### Markview (Markdown Preview)
 

@@ -6,6 +6,7 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim",
+      "nvim-telekasten/calendar-vim"
     },
     config = function()
       local telekasten = require("telekasten")
