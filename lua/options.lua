@@ -20,6 +20,17 @@ vim.api.nvim_create_autocmd("BufEnter", {
   end,
 })
 
+-- Command to toggle autocomplete
+local map = vim.keymap.set
+local opts = { noremap = true, silent = true}
+
+local cmp_enabled = true
+map("n", "<leader>a", function()
+  local cmp = require('cmp')
+  cmp_enabled = not cmp_enabled
+  cmp.setup.buffer({enabled = cmp_enabled})
+end, vim.tbl_extend("force", opts, { desc = "Toggle completion"}))
+
 -- Navigate with Alt+hjkl and Alt+arrows
 -- Allows holding Alt for navigation in wrapped text
 

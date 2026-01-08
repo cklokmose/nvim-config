@@ -116,6 +116,13 @@ nvim
 | `<S-Tab>` | N | Previous buffer |
 | `<leader>x` | N | Close buffer |
 
+### Custom general Keybindings
+
+| Key | Mode | Description |
+|-----|------|-------------|
+| `<leader>a` | N | Toggle completion |
+
+
 ### Flash Navigation
 
 | Key | Mode | Description |
