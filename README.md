@@ -325,7 +325,7 @@ Install additional servers via `:Mason`
 
 ### VimTeX Configuration
 
-- **Compiler**: LuaLaTeX (via latexmk)
+- **Compiler**: XeLaTeX (via latexmk)
 - **Viewer**: 
   - **macOS**: Preview (built-in)
   - **Linux**: Sioyek
