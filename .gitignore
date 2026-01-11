@@ -26,3 +26,6 @@ lsp.log
 # Spell files
 *.spl
 *.sug
+
+# Lock file
+.lazy-lock.json
