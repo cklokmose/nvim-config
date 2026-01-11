@@ -7,6 +7,8 @@ return {
   opts = {
     backend = "kitty",
     processor = "magick_cli",
+    window_overlap_clear_enabled = true, -- auto-hide images when windows overlap
+    window_overlap_clear_ft_ignore = { "cmp_menu", "cmp_docs", "snacks_notif" },
     integrations = {
       markdown = {
         enabled = true,
@@ -20,5 +22,6 @@ return {
     max_height = nil,
     max_width_window_percentage = nil,
     max_height_window_percentage = 50,
+    scale_factor = 0.5,
   },
 }
