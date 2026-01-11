@@ -1,6 +1,6 @@
 # Plugin manager lock file
 # Uncomment the line below if you want different plugin versions on different machines
-lazy-lock.json
+#lazy-lock.json
 
 # Lazy.nvim plugin directory
 .lazy/
@@ -27,5 +27,3 @@ lsp.log
 *.spl
 *.sug
 
-# Lock file
-.lazy-lock.json
