@@ -7,7 +7,6 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim",
       "nvim-telekasten/calendar-vim",
-      "nvim-telescope/telescope-media-files.nvim"
     },
     config = function()
       local telekasten = require("telekasten")
@@ -30,7 +29,7 @@ return {
 
         follow_creates_nonexisting = true,
         sort = "filename",
-        media_previewer = "telescope-media-files",
+        media_previewer = "viu-previewer",
         media_extensions = {
             ".png",
             ".jpg",
@@ -68,6 +67,9 @@ return {
 
     map("n", "<leader>ti", telekasten.paste_img_and_link,
       vim.tbl_extend("force", opts, { desc = "Telekasten: Paste image"}))
+
+    map("n", "<leader>tp", telekasten.preview_img,
+      vim.tbl_extend("force", opts, { desc = "Telekasten: Preview image"}))
 
     end,
   },
