@@ -6,7 +6,8 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim",
-      "nvim-telekasten/calendar-vim"
+      "nvim-telekasten/calendar-vim",
+      "nvim-telescope/telescope-media-files.nvim"
     },
     config = function()
       local telekasten = require("telekasten")
@@ -21,7 +22,7 @@ return {
         weeklies = nil,
 
         templates = nil,
-        image_subdir = nil,
+        image_subdir = "images",
 
         extension = ".md",
         new_note_filename = "title",
@@ -29,6 +30,17 @@ return {
 
         follow_creates_nonexisting = true,
         sort = "filename",
+        media_previewer = "telescope-media-files",
+        media_extensions = {
+            ".png",
+            ".jpg",
+            ".bmp",
+            ".gif",
+            ".pdf",
+            ".mp4",
+            ".webm",
+            ".webp",
+        },
       })
 
 
@@ -53,6 +65,9 @@ return {
 
     map("n", "<leader>ts", telekasten.search_notes,
       vim.tbl_extend("force", opts, { desc = "Telekasten: search notes"}))
+
+    map("n", "<leader>ti", telekasten.paste_img_and_link,
+      vim.tbl_extend("force", opts, { desc = "Telekasten: Paste image"}))
 
     end,
   },
