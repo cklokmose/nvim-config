@@ -194,11 +194,34 @@ nvim
 | `<leader>cm` | N | Git commits |
 | `<leader>gt` | N | Git status |
 
-### AI Assistants
+### AI Assistants (CodeCompanion & Copilot)
+
+#### CodeCompanion Chat Window
 
 | Key | Mode | Description |
 |-----|------|-------------|
 | `<leader>cc` | N | Open CodeCompanion chat |
+| `gh` | CodeCompanion Chat | Open chat history (CodeCompanion-History) |
+| `sc` | CodeCompanion Chat | Save current chat |
+| `?` | CodeCompanion Chat | Show all keymaps |
+| `<CR>` or `<C-s>` | CodeCompanion Chat | Send message to LLM |
+| `q` | CodeCompanion Chat | Stop current request |
+| `<C-c>` | CodeCompanion Chat | Close chat buffer |
+| `ga` | CodeCompanion Chat | Change adapter (model) |
+| `gc` | CodeCompanion Chat | Insert codeblock |
+| `gd` | CodeCompanion Chat | View/debug chat contents |
+| `gD` | CodeCompanion Chat | View super diff |
+| `gr` | CodeCompanion Chat | Regenerate last response |
+| `gR` | CodeCompanion Chat | Go to file under cursor |
+| `gx` | CodeCompanion Chat | Clear chat buffer |
+| `gy` | CodeCompanion Chat | Yank last codeblock |
+| `[[` / `]]` | CodeCompanion Chat | Move to prev/next header |
+| `{` / `}` | CodeCompanion Chat | Move to prev/next chat |
+
+#### Copilot
+
+| Key | Mode | Description |
+|-----|------|-------------|
 | `<Tab>` | I | Accept Copilot suggestion |
 | `<leader>ct` | N | Toggle auto completion (disabled by default) |
 | `:Copilot` | N | Copilot commands |

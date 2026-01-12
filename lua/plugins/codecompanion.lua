@@ -6,6 +6,7 @@ return {
       "nvim-lua/plenary.nvim",
       "github/copilot.vim",
       "ravitemer/mcphub.nvim",
+      "ravitemer/codecompanion-history.nvim"
     },
     config = function()
       vim.g.copilot_filetypes = { ["*"] = true }
@@ -20,6 +21,14 @@ return {
               show_result_in_chat = true,
             },
           },
+          history  = {
+            enabled = true,
+            opts = {
+              picker = "telescope",
+              keymap = "gh",
+              save_chat_keymap = "sc",
+            }
+          }
         },
 
         interactions = {
