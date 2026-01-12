@@ -27,6 +27,7 @@ return {
               picker = "telescope",
               keymap = "gh",
               save_chat_keymap = "sc",
+              auto_save = false,
             }
           }
         },
