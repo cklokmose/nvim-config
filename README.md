@@ -738,4 +738,14 @@ Add to individual plugin configs in `lua/plugins/` using the `keys` table or cre
 
 ---
 
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+### Dependencies
+
+This configuration uses [NVChad](https://github.com/NvChad/NvChad) (GPL-3.0) as a plugin dependency and is based on the [NVChad starter template](https://github.com/NvChad/starter) (Unlicense). Individual plugins have their own licenses.
+
+---
+
 **Built with**: NVChad v2.5 • Neovim 0.11+ • Lazy.nvim
