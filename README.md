@@ -621,7 +621,7 @@ return {
 
 ### Modifying Theme
 
-Edit `lua/chadrc.lua`:
+Edit `lua/options.lua`:
 - Change `theme` value
 - Add custom highlights in `hl_override`
 - Modify theme colors in `changed_themes`
@@ -710,10 +710,6 @@ Add to individual plugin configs in `lua/plugins/` using the `keys` table or cre
 - Run `:NvChadUpdate` to update base46
 - Clear cache: `rm -rf ~/.local/share/nvim/nvchad/base46`
 - Restart Neovim
-
-## License
-
-Your configuration, your rules!
 
 ---
 
