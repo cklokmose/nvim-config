@@ -13,7 +13,7 @@ This configuration includes:
 
 **AI Assistance**
 - **GitHub Copilot** for code completion
-- **CodeCompanion** with Claude Sonnet 4.5 and GPT-4.1 for chat
+- **CodeCompanion** default setup with Claude Sonnet 4.5 through CoPilot.
 - **MCPHub** for Model Context Protocol tools
 - **Tavily** web search
 
@@ -236,7 +236,7 @@ For web search functionality in CodeCompanion, you need a Tavily API key:
 
 ### AI & Completion
 - **[copilot.vim](https://github.com/github/copilot.vim)** - GitHub Copilot integration
-- **[codecompanion.nvim](https://github.com/olimorris/codecompanion.nvim)** - AI coding assistant with Claude & GPT-4
+- **[codecompanion.nvim](https://github.com/olimorris/codecompanion.nvim)** - AI coding assistant with Claude through Copilot
 - **[mcphub.nvim](https://github.com/ravitemer/mcphub.nvim)** - MCP (Model Context Protocol) hub integration
 - **[nvim-cmp](https://github.com/hrsh7th/nvim-cmp)** - Autocompletion engine
 - **[LuaSnip](https://github.com/L3MON4D3/LuaSnip)** - Snippet engine
@@ -648,13 +648,6 @@ return {
   end,
 }
 ```
-
-### Modifying Theme
-
-Edit `lua/options.lua`:
-- Change `theme` value
-- Add custom highlights in `hl_override`
-- Modify theme colors in `changed_themes`
 
 ### Adding LSP Servers
 
