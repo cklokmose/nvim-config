@@ -564,25 +564,43 @@ hello("World");
 ~/.config/nvim/
 ├── init.lua                    # Entry point, loads NVChad and plugins
 ├── lazy-lock.json              # Plugin version lock file
-├── .stylua.toml                # Stylua formatter config
+├── README.md                   # This file
 ├── lua/
 │   ├── chadrc.lua             # NVChad UI configuration
+│   ├── options.lua            # General Neovim options
 │   ├── nvchad/                # NVChad core files (managed)
+│   │   ├── autocmds.lua
+│   │   ├── mappings.lua
+│   │   ├── options.lua
+│   │   ├── configs/           # NVChad plugin configs
+│   │   │   ├── cmp.lua
+│   │   │   ├── gitsigns.lua
+│   │   │   ├── lspconfig.lua
+│   │   │   ├── luasnip.lua
+│   │   │   ├── mason.lua
+│   │   │   ├── nvimtree.lua
+│   │   │   ├── telescope.lua
+│   │   │   └── treesitter.lua
+│   │   └── plugins/
+│   │       └── init.lua
 │   └── plugins/               # Custom plugin configurations
-│       ├── init.lua           # Plugin loader (empty placeholder)
+│       ├── init.lua           # Plugin loader
 │       ├── codecompanion.lua  # AI assistant config
 │       ├── conjure.lua        # JavaScript/Clojure REPL
 │       ├── copilot.lua        # GitHub Copilot
 │       ├── flash.lua          # Navigation plugin
+│       ├── image.lua          # Image preview
+│       ├── lazygit.lua        # LazyGit integration
 │       ├── lspconfig.lua      # LSP setup (TeXLab)
 │       ├── markview.lua       # Markdown preview
 │       ├── mcphub.lua         # MCP hub config
+│       ├── nvim-tree.lua      # File tree explorer
 │       ├── oil.lua            # Buffer-based file explorer
 │       ├── surround.lua       # Surround plugin
 │       ├── telekasten.lua     # Zettelkasten note-taking
+│       ├── telescope.lua      # Telescope config
 │       ├── undotree.lua       # Undo history visualizer
 │       └── vimtex.lua         # LaTeX support
-└── README.md                   # This file
 ```
 
 ## Customization
