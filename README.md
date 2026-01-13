@@ -2,9 +2,49 @@
 
 A setup based on [NVChad](https://nvchad.com/), configured for development with LSP, AI assistance, LaTeX support, and various editing features.
 
+## Summary
+
+This configuration includes:
+
+**Interface**
+- Customized Catppuccin theme
+- File navigation with nvim-tree and Oil.nvim
+- Fuzzy finding with Telescope
+
+**AI Assistance**
+- **GitHub Copilot** for code completion
+- **CodeCompanion** with Claude Sonnet 4.5 and GPT-4.1 for chat
+- **MCPHub** for Model Context Protocol tools
+- **Tavily** web search
+
+**Note-Taking & Writing**
+- **Telekasten** for Zettelkasten notes with daily notes and backlinks
+- **Markview** for Markdown rendering
+- **image.nvim** for image preview (requires Kitty terminal)
+- **VimTeX** for LaTeX editing with continuous compilation and PDF preview
+
+**Development**
+- LSP support via Mason (TeXLab pre-configured)
+- **Conjure** for REPL development (JavaScript/Node.js, Clojure, Fennel, etc.)
+- Code formatting with conform.nvim
+- Git integration with gitsigns and LazyGit
+- TreeSitter syntax highlighting
+
+**Editing**
+- **Flash.nvim** for quick navigation
+- nvim-surround for text objects
+- Auto-pairing brackets and quotes
+- Undo history with undotree
+- Wrapped line navigation
+
+**Other**
+- Cross-platform (macOS and Linux)
+- Plugin management with Lazy.nvim
+
 ## Requirements
 
 - Neovim >= 0.11.0
+- [NVChad](https://nvchad.com/) (base configuration framework)
 - Git
 - A [Nerd Font](https://www.nerdfonts.com/) (for icons)
 - ripgrep (for telescope grep)
@@ -15,41 +55,138 @@ A setup based on [NVChad](https://nvchad.com/), configured for development with 
   - **macOS**: Preview (built-in)
   - **Linux**: Sioyek
 
+### Optional
+
+- [Kitty terminal](https://sw.kovidgoyal.net/kitty/) (for image rendering in Markdown files)
+
 ## Installation
 
-1. Backup your existing Neovim configuration:
+### 1. Install Neovim
+
+#### macOS
+```bash
+# Using Homebrew
+brew install neovim
+
+# Or download from GitHub releases
+# https://github.com/neovim/neovim/releases
+```
+
+#### Linux (Ubuntu/Debian)
+```bash
+# Using apt (might not be latest version)
+sudo apt install neovim
+
+# For latest stable version, use AppImage or build from source:
+# https://github.com/neovim/neovim/releases
+```
+
+#### Verify installation
+```bash
+nvim --version  # Should show >= 0.11.0
+```
+
+### 2. Install dependencies
+
+#### macOS
+```bash
+brew install git ripgrep node
+```
+
+#### Linux (Ubuntu/Debian)
+```bash
+sudo apt install git ripgrep nodejs npm
+```
+
+### 3. Install a Nerd Font
+
+Download and install a [Nerd Font](https://www.nerdfonts.com/) (e.g., JetBrains Mono Nerd Font, Hack Nerd Font) and configure your terminal to use it.
+
+### 4. Backup existing Neovim configuration
 ```bash
 mv ~/.config/nvim ~/.config/nvim.backup
 mv ~/.local/share/nvim ~/.local/share/nvim.backup
 ```
 
-2. Clone this repository:
+### 5. Clone this repository
 ```bash
-git clone <your-repo-url> ~/.config/nvim
+git clone https://github.com/cklokmose/nvim-config ~/.config/nvim
 ```
 
-3. **Clean any existing Neovim data** (important for cross-platform setup):
+### 6. Clean any existing Neovim data
+**(Important for cross-platform setup)**
 ```bash
 rm -rf ~/.local/share/nvim ~/.cache/nvim
 ```
 
-4. Start Neovim (plugins will install automatically):
+### 7. Start Neovim
 ```bash
 nvim
 ```
 
-5. Set up GitHub Copilot:
+NVChad and all plugins will install automatically on first launch. This may take a few minutes.
+
+### 8. Set up GitHub Copilot
 ```vim
 :Copilot setup
+```
+
+### 9. Optional: Install additional dependencies
+
+#### LaTeX Support (for VimTeX)
+
+**macOS:**
+```bash
+# Install MacTeX (full distribution)
+brew install --cask mactex
+
+# Or BasicTeX (minimal distribution)
+brew install --cask basictex
+
+# Install neovim-remote for forward search
+pip3 install neovim-remote
+```
+
+**Linux (Ubuntu/Debian):**
+```bash
+# Install TeX Live
+sudo apt install texlive-full
+
+# Or minimal installation
+sudo apt install texlive-latex-base texlive-latex-extra
+
+# Install PDF viewer (Sioyek)
+sudo apt install sioyek
+
+# Install neovim-remote for forward search
+pip3 install neovim-remote
+```
+
+#### Git Integration (LazyGit)
+
+**macOS:**
+```bash
+brew install lazygit
+```
+
+**Linux (Ubuntu/Debian):**
+```bash
+# Add PPA for latest version
+sudo add-apt-repository ppa:lazygit-team/release
+sudo apt update
+sudo apt install lazygit
+
+# Or download from GitHub releases:
+# https://github.com/jesseduffield/lazygit/releases
 ```
 
 **Note**: Always clean `~/.local/share/nvim` and `~/.cache/nvim` when moving this config between different operating systems (e.g., Linux ↔ macOS). This ensures all binaries and cache files are rebuilt for your current platform.
 
 ## Core Features
 
-- **Base**: NVChad v2.5 - A blazing fast Neovim config
+- **Base**: NVChad v2.5
 - **Theme**: Catppuccin with custom highlights
-- **LSP**: Built-in Language Server Protocol support (TeXLab for LaTeX)
+- **LSP**: Language Server Protocol support (TeXLab for LaTeX)
 - **AI Assistance**: 
   - GitHub Copilot for code completion
   - CodeCompanion with Claude Sonnet 4.5 and GPT-4.1
@@ -64,43 +201,43 @@ nvim
 ## Installed Plugins
 
 ### Note-taking & Knowledge Management
-- **telekasten.nvim** - Zettelkasten note-taking with daily notes and backlinks
-- **markview.nvim** - Markdown preview and rendering in Neovim
+- **[telekasten.nvim](https://github.com/renerocksai/telekasten.nvim)** - Zettelkasten note-taking with daily notes and backlinks
+- **[markview.nvim](https://github.com/OXY2DEV/markview.nvim)** - Markdown preview and rendering in Neovim
 
 ### AI & Completion
-- **copilot.vim** - GitHub Copilot integration
-- **codecompanion.nvim** - AI coding assistant with Claude & GPT-4
-- **mcphub.nvim** - MCP (Model Context Protocol) hub integration
-- **nvim-cmp** - Autocompletion engine
-- **LuaSnip** - Snippet engine
+- **[copilot.vim](https://github.com/github/copilot.vim)** - GitHub Copilot integration
+- **[codecompanion.nvim](https://github.com/olimorris/codecompanion.nvim)** - AI coding assistant with Claude & GPT-4
+- **[mcphub.nvim](https://github.com/ravitemer/mcphub.nvim)** - MCP (Model Context Protocol) hub integration
+- **[nvim-cmp](https://github.com/hrsh7th/nvim-cmp)** - Autocompletion engine
+- **[LuaSnip](https://github.com/L3MON4D3/LuaSnip)** - Snippet engine
 
 ### LSP & Language Support
-- **nvim-lspconfig** - LSP configuration (TeXLab enabled)
-- **mason.nvim** - LSP/DAP/linter/formatter installer
-- **vimtex** - LaTeX editing and compilation
-- **conjure** - Interactive REPL for JavaScript (Node.js), Clojure, Fennel, and other languages
+- **[nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)** - LSP configuration (TeXLab enabled)
+- **[mason.nvim](https://github.com/mason-org/mason.nvim)** - LSP/DAP/linter/formatter installer
+- **[vimtex](https://github.com/lervag/vimtex)** - LaTeX editing and compilation
+- **[conjure](https://github.com/Olical/conjure)** - Interactive REPL for JavaScript (Node.js), Clojure, Fennel, and other languages
 
 ### Navigation & Motion
-- **flash.nvim** - Quick navigation with labels
-- **oil.nvim** - File explorer as a buffer
-- **telescope.nvim** - Fuzzy finder
-- **nvim-tree.lua** - Traditional file explorer
+- **[flash.nvim](https://github.com/folke/flash.nvim)** - Quick navigation with labels
+- **[oil.nvim](https://github.com/stevearc/oil.nvim)** - File explorer as a buffer
+- **[telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)** - Fuzzy finder
+- **[nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua)** - Traditional file explorer
 
 ### Editing
-- **nvim-surround** - Surround text objects with quotes, brackets, etc.
-- **nvim-autopairs** - Auto close brackets, quotes, etc.
-- **undotree** - Visualize undo history
-- **conform.nvim** - Code formatting
+- **[nvim-surround](https://github.com/kylechui/nvim-surround)** - Surround text objects with quotes, brackets, etc.
+- **[nvim-autopairs](https://github.com/windwp/nvim-autopairs)** - Auto close brackets, quotes, etc.
+- **[undotree](https://github.com/mbbill/undotree)** - Visualize undo history
+- **[conform.nvim](https://github.com/stevearc/conform.nvim)** - Code formatting
 
 ### UI & Visual
-- **indent-blankline.nvim** - Indentation guides
-- **gitsigns.nvim** - Git decorations
-- **which-key.nvim** - Keybinding hints
-- **nvim-web-devicons** - File icons
-- **mini.icons** - Additional icons
+- **[indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)** - Indentation guides
+- **[gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)** - Git decorations
+- **[which-key.nvim](https://github.com/folke/which-key.nvim)** - Keybinding hints
+- **[nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)** - File icons
+- **[mini.icons](https://github.com/echasnovski/mini.icons)** - Additional icons
 
 ### Syntax
-- **nvim-treesitter** - Advanced syntax highlighting and parsing
+- **[nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)** - Advanced syntax highlighting and parsing
 
 ## Keybindings Cheatsheet
 
