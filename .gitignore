@@ -27,3 +27,6 @@ lsp.log
 *.spl
 *.sug
 
+# MCPHub servers config (contains API keys)
+# This file is stored at ~/.config/mcphub/servers.json
+# Do not commit it to version control

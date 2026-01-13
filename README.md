@@ -180,6 +180,36 @@ sudo apt install lazygit
 # https://github.com/jesseduffield/lazygit/releases
 ```
 
+#### Notes Setup (Telekasten)
+
+Create a notes directory (default location expected by Telekasten):
+```bash
+mkdir -p ~/notes/dailies
+```
+
+You can change the notes location by editing `lua/plugins/telekasten.lua` and modifying the `home` path.
+
+#### Web Search (Tavily)
+
+For web search functionality in CodeCompanion, you need a Tavily API key:
+
+1. Get a free API key from [Tavily](https://tavily.com/)
+2. Configure it in MCPHub's servers file at `~/.config/mcphub/servers.json`:
+
+```json
+{
+  "mcpServers": {
+    "tavily": {
+      "command": "npx",
+      "args": ["-y", "tavily-mcp"],
+      "env": {
+        "TAVILY_API_KEY": "your-api-key-here"
+      }
+    }
+  }
+}
+```
+
 **Note**: Always clean `~/.local/share/nvim` and `~/.cache/nvim` when moving this config between different operating systems (e.g., Linux ↔ macOS). This ensures all binaries and cache files are rebuilt for your current platform.
 
 ## Core Features
