@@ -28,6 +28,9 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "TermLeav
   command = "checktime",
 })
 
+-- Persist undo history to disk
+vim.o.undofile = true
+
 
 -- Command to toggle autocomplete
 local map = vim.keymap.set
