@@ -22,6 +22,12 @@ vim.api.nvim_create_autocmd("BufEnter", {
   end,
 })
 
+-- Auto-reload buffers when files change externally (e.g., from Crush)
+vim.o.autoread = true
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "TermLeave" }, {
+  command = "checktime",
+})
+
 
 -- Command to toggle autocomplete
 local map = vim.keymap.set
