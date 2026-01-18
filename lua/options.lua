@@ -36,11 +36,12 @@ vim.o.undofile = true
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true}
 
-local cmp_enabled = true
+vim.g.cmp_enabled = true
 map("n", "<leader>a", function()
   local cmp = require('cmp')
-  cmp_enabled = not cmp_enabled
-  cmp.setup.buffer({enabled = cmp_enabled})
+  vim.g.cmp_enabled = not vim.g.cmp_enabled
+  cmp.setup.buffer({enabled = vim.g.cmp_enabled})
+  vim.notify("Completion " .. (vim.g.cmp_enabled and "enabled" or "disabled"))
 end, vim.tbl_extend("force", opts, { desc = "Toggle completion"}))
 
 -- Navigate with Alt+hjkl and Alt+arrows
