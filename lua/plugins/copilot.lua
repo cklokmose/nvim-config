@@ -1,7 +1,7 @@
 return {
   {
     "github/copilot.vim",
-    lazy = false,
+    event = "InsertEnter",
     init = function()
       -- Disable Copilot globally by default
       vim.g.copilot_enabled = false
