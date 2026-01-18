@@ -39,6 +39,9 @@ This configuration includes:
 - Undo history with undotree
 - Wrapped line navigation
 
+**Security**
+- **marbles.nvim** for file encryption/decryption with OpenSSL
+
 **Other**
 - Cross-platform (macOS and Linux)
 - Plugin management with Lazy.nvim
@@ -51,6 +54,7 @@ This configuration includes:
 - A [Nerd Font](https://www.nerdfonts.com/) (for icons)
 - ripgrep (for telescope grep)
 - Node.js (for Copilot)
+- OpenSSL (for marbles.nvim encryption)
 - Language-specific tools (LSP servers, formatters, linters)
 - LaTeX distribution (for VimTeX)
 - PDF viewer:
@@ -261,6 +265,9 @@ For web search functionality in CodeCompanion, you need a Tavily API key:
 - **[undotree](https://github.com/mbbill/undotree)** - Visualize undo history
 - **[conform.nvim](https://github.com/stevearc/conform.nvim)** - Code formatting
 
+### Security
+- **[marbles.nvim](https://github.com/cklokmose/marbles.nvim)** - File encryption/decryption using OpenSSL (AES-256-CBC)
+
 ### UI & Visual
 - **[indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)** - Indentation guides
 - **[gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)** - Git decorations
@@ -459,6 +466,12 @@ For web search functionality in CodeCompanion, you need a Tavily API key:
 |-----|------|-------------|
 | `<leader>u` | N | Toggle undotree |
 
+### Marbles (Encryption)
+
+| Key | Mode | Description |
+|-----|------|-------------|
+| `<leader>s` | N | Open Marbles menu |
+
 ### Surround (nvim-surround)
 
 | Key | Mode | Description |
@@ -632,7 +645,8 @@ hello("World");
 │       ├── telekasten.lua     # Zettelkasten note-taking
 │       ├── telescope.lua      # Telescope config
 │       ├── undotree.lua       # Undo history visualizer
-│       └── vimtex.lua         # LaTeX support
+│       ├── vimtex.lua         # LaTeX support
+│       └── marbles.lua        # File encryption
 ```
 
 ## Customization
