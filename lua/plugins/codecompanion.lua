@@ -71,7 +71,7 @@ return {
         },
 
         opts = {
-          log_level = "TRACE",
+          log_level = "ERROR",
         },
       })
     end,
