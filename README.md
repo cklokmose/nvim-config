@@ -329,6 +329,7 @@ For web search functionality in CodeCompanion, you need a Tavily API key:
 | `<C-n>` | N | Toggle nvim-tree |
 | `<leader>e` | N | Focus nvim-tree |
 | `.` | N | Re-roots the nvim-tree to the current directory |
+| `<leader>o` | N | Open Oil.nvim (working directory) |
 | `-` | N | Open Oil.nvim (parent directory) |
 
 ### Git
