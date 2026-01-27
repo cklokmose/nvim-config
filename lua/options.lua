@@ -32,16 +32,39 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "TermLeav
 vim.o.undofile = true
 
 
--- Command to toggle autocomplete
+-- Disable autocomplete for prose filetypes
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "markdown", "latex", "tex", "text", "asciidoc", "rst", "org" },
+  callback = function()
+    vim.b.cmp_enabled = false
+    local cmp = require('cmp')
+    cmp.setup.buffer({ enabled = false })
+  end,
+})
+
+-- Also disable for .txt files specifically
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*.txt",
+  callback = function()
+    vim.b.cmp_enabled = false
+    local cmp = require('cmp')
+    cmp.setup.buffer({ enabled = false })
+  end,
+})
+
+-- Toggle autocomplete per buffer
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true}
 
-vim.g.cmp_enabled = true
 map("n", "<leader>a", function()
   local cmp = require('cmp')
-  vim.g.cmp_enabled = not vim.g.cmp_enabled
-  cmp.setup.buffer({enabled = vim.g.cmp_enabled})
-  vim.notify("Completion " .. (vim.g.cmp_enabled and "enabled" or "disabled"))
+  -- Initialize buffer variable if it doesn't exist (defaults to enabled)
+  if vim.b.cmp_enabled == nil then
+    vim.b.cmp_enabled = true
+  end
+  vim.b.cmp_enabled = not vim.b.cmp_enabled
+  cmp.setup.buffer({ enabled = vim.b.cmp_enabled })
+  vim.notify("Completion " .. (vim.b.cmp_enabled and "enabled" or "disabled"))
 end, vim.tbl_extend("force", opts, { desc = "Toggle completion"}))
 
 -- Navigate with Alt+hjkl and Alt+arrows
