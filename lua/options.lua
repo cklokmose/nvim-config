@@ -42,6 +42,15 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- Disable line numbers for markdown files
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    vim.wo.number = false
+    vim.wo.relativenumber = false
+  end,
+})
+
 -- Also disable for .txt files specifically
 vim.api.nvim_create_autocmd("BufEnter", {
   pattern = "*.txt",
