@@ -350,6 +350,18 @@ For web search functionality in CodeCompanion, you need a Tavily API key:
 | `<leader>cal`| N | Open calendar in vertical split |
 | `<leader>caL`| N | Open calendar in horisontal split | 
 
+### Markdown Link Navigation
+
+`gf` is overridden in markdown files to properly follow `[text](url)` links. This enables vault-style navigation (e.g. Obsidian exports or convoviz output) where links use URL-encoded paths like `My%20File.md`. The override:
+
+- Parses the markdown link under the cursor (works anywhere within `[text](url)`)
+- URL-decodes the path (`%20` → space, `%28` → `(`, etc.)
+- Opens the target file relative to the current buffer's directory
+- Falls back to the built-in `gf` if no markdown link is found on the line
+- If the line has a single link, follows it regardless of cursor position (useful with conceal plugins like Markview)
+
+Use `<C-o>` to jump back.
+
 ### Markview (Markdown Preview)
 
 | Key | Mode | Description |

@@ -1,6 +1,8 @@
 -- Custom vim options and settings
 require "nvchad.options"
 
+vim.opt.suffixesadd:append(".md")
+
 -- Custom highlight for white text
 vim.api.nvim_set_hl(0, "NormalWhite", { fg = "#ffffff" })
 
@@ -48,6 +50,44 @@ vim.api.nvim_create_autocmd("FileType", {
   callback = function()
     vim.wo.number = false
     vim.wo.relativenumber = false
+
+    vim.keymap.set("n", "gf", function()
+      local line = vim.api.nvim_get_current_line()
+      local col = vim.api.nvim_win_get_cursor(0)[2] + 1
+      local target = nil
+
+      local links = {}
+      local search_start = 1
+      while true do
+        local lb, le, _, url = line:find("%[([^%]]*)%]%(([^%)]+)%)", search_start)
+        if not lb then break end
+        table.insert(links, { lb = lb, le = le, url = url })
+        search_start = le + 1
+      end
+
+      for _, link in ipairs(links) do
+        if col >= link.lb and col <= link.le then
+          target = link.url
+          break
+        end
+      end
+
+      if not target and #links == 1 then
+        target = links[1].url
+      end
+
+      if not target then
+        return vim.cmd("normal! gF")
+      end
+
+      local decoded = target:gsub("%%(%x%x)", function(hex)
+        return string.char(tonumber(hex, 16))
+      end)
+
+      local buf_dir = vim.fn.expand("%:p:h")
+      local full_path = buf_dir .. "/" .. decoded
+      vim.cmd("edit " .. vim.fn.fnameescape(full_path))
+    end, { buffer = true, desc = "Follow markdown link" })
   end,
 })
 
