@@ -28,6 +28,7 @@ This configuration includes:
 **Development**
 - LSP support via Mason (TeXLab pre-configured)
 - **Conjure** for REPL development (JavaScript/Node.js, Clojure, Fennel, etc.)
+- **openscad.nvim** for OpenSCAD syntax, snippets, cheatsheet, manual and help
 - Code formatting with conform.nvim
 - Git integration with gitsigns and LazyGit
 - TreeSitter syntax highlighting
@@ -252,6 +253,7 @@ For web search functionality in CodeCompanion, you need a Tavily API key:
 - **[mason.nvim](https://github.com/mason-org/mason.nvim)** - LSP/DAP/linter/formatter installer
 - **[vimtex](https://github.com/lervag/vimtex)** - LaTeX editing and compilation
 - **[conjure](https://github.com/Olical/conjure)** - Interactive REPL for JavaScript (Node.js), Clojure, Fennel, and other languages
+- **[openscad.nvim](https://github.com/salkin-mada/openscad.nvim)** - OpenSCAD syntax highlighting, snippets, cheatsheet, offline manual and fuzzy help
 
 ### Navigation & Motion
 - **[flash.nvim](https://github.com/folke/flash.nvim)** - Quick navigation with labels
@@ -458,6 +460,17 @@ Use `<C-o>` to jump back.
 
 *Note: `æ` is the localleader key. These keymaps work in JavaScript (`.js`), Clojure, Fennel, and other supported files*
 
+### OpenSCAD
+
+| Key | Mode | Description |
+|-----|------|-------------|
+| `æc` | N | Toggle cheatsheet floating window |
+| `æh` | N | Fuzzy-search help files (via Telescope) |
+| `æm` | N | Open offline OpenSCAD PDF manual (via Sioyek on Linux) |
+| `æo` | N | Open current file in OpenSCAD |
+
+*Note: These keymaps only work in `.scad` files*
+
 ### LSP (NVChad Defaults)
 
 | Key | Mode | Description |
@@ -659,6 +672,7 @@ hello("World");
 │       ├── telescope.lua      # Telescope config
 │       ├── undotree.lua       # Undo history visualizer
 │       ├── vimtex.lua         # LaTeX support
+│       ├── openscad.lua       # OpenSCAD support
 │       └── marbles.lua        # File encryption
 ```
 
@@ -715,6 +729,14 @@ Add to individual plugin configs in `lua/plugins/` using the `keys` table or cre
 - `:ConjureConnect [host] [port]` - Connect to REPL
 - `:ConjureClientState` - Get/set client state
 - `:help conjure` - Full Conjure documentation
+
+### OpenSCAD
+- `:OpenscadCheatsheet` - Toggle the cheatsheet floating window
+- `:OpenscadHelp` - Fuzzy-search help files with fzf-lua
+- `:OpenscadManual` - Open the offline PDF manual
+- `:OpenscadExecFile` - Open current file in OpenSCAD
+- `:OpenscadJustfile[!]` - Deploy a justfile export template (STL, PNG, etc.) in the current directory. Use `!` to overwrite
+- `:checkhealth openscad` - Verify openscad.nvim setup
 
 ### AI
 - `:Copilot status` - Check Copilot status
