@@ -5,69 +5,106 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
       "github/copilot.vim",
-      "ravitemer/mcphub.nvim",
-      "ravitemer/codecompanion-history.nvim"
+      "ravitemer/codecompanion-history.nvim",
     },
     config = function()
       vim.g.copilot_filetypes = { ["*"] = true }
 
       require("codecompanion").setup({
         extensions = {
-          mcphub = {
-            callback = "mcphub.extensions.codecompanion",
-            opts = {
-              make_vars = false,
-              make_slash_commands = true,
-              show_result_in_chat = true,
-            },
-          },
-          history  = {
+          history = {
             enabled = true,
             opts = {
               picker = "telescope",
               keymap = "gh",
               save_chat_keymap = "sc",
               auto_save = false,
-            }
-          }
+            },
+          },
+        },
+
+        mcp = {
+          servers = {
+            context7 = {
+              cmd = { "npx", "-y", "@upstash/context7-mcp" },
+              env = {
+                DEFAULT_MINIMUM_TOKENS = "6000",
+              },
+            },
+            fetch = {
+              cmd = { "uvx", "--with", "mcp<2.0", "mcp-server-fetch" },
+            },
+            filesystem = function()
+              return {
+                cmd = {
+                  "npx",
+                  "-y",
+                  "@modelcontextprotocol/server-filesystem",
+                  vim.uv.cwd(),
+                },
+              }
+            end,
+            memory = {
+              cmd = { "npx", "-y", "@modelcontextprotocol/server-memory" },
+            },
+            sequentialthinking = {
+              cmd = { "npx", "-y", "@modelcontextprotocol/server-sequential-thinking" },
+            },
+            tavily = {
+              cmd = { "npx", "-y", "tavily-mcp" },
+              env = {
+                TAVILY_API_KEY = "TAVILY_API_KEY",
+              },
+            },
+            time = {
+              cmd = { "uvx", "--with", "mcp<2.0", "mcp-server-time" },
+            },
+          },
+          opts = {
+            default_servers = { "filesystem", "context7", "sequentialthinking" },
+          },
         },
 
         interactions = {
           chat = {
             adapter = {
               name = "copilot",
-              model = "claude-sonnet-4.5",
+              model = "claude-sonnet-5",
+            },
+            tools = {
+              web_search = {
+                opts = {
+                  adapter = "tavily",
+                  opts = {
+                    topic = "general",
+                    search_depth = "advanced",
+                    chunks_per_source = 3,
+                    max_results = 3,
+                    time_range = "month",
+                    include_answer = true,
+                    include_raw_content = true,
+                  },
+                },
+              },
             },
           },
           inline = {
             adapter = {
               name = "copilot",
-              model = "claude-sonnet-4.5",
-            },
-          },
-
-        },
-
-        tools = {
-          web_search = {
-            provider = "tavily",
-            opts = {
-              topic = "general",
-              search_depth = "advanced",
-              chunks_per_source = 3,
-              max_results = 3,
-              time_range = "month",
-              include_answer = true,
-              include_raw_content = true,
+              model = "claude-sonnet-5",
             },
           },
         },
 
         display = {
           chat = {
-            show_tools_processing = true,
+            window = {
+              border = "rounded",
+            },
+            floating_window = {
+              border = "rounded",
+            },
           },
-          border = "rounded",
         },
 
         opts = {
