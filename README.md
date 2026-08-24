@@ -15,8 +15,8 @@ This configuration includes:
 
 **AI Assistance**
 - **GitHub Copilot** for code completion
-- **CodeCompanion** default setup with Claude Sonnet 4.5 through CoPilot.
-- **MCPHub** for Model Context Protocol tools
+- **CodeCompanion** default setup with Claude Sonnet 5 through CoPilot.
+- **MCP** servers via CodeCompanion's built-in Model Context Protocol support
 - **Tavily** web search
 
 **Note-Taking & Writing**
@@ -201,21 +201,14 @@ You can change the notes location by editing `lua/plugins/telekasten.lua` and mo
 For web search functionality in CodeCompanion, you need a Tavily API key:
 
 1. Get a free API key from [Tavily](https://tavily.com/)
-2. Configure it in MCPHub's servers file at `~/.config/mcphub/servers.json`:
+2. Export it as an environment variable in your shell profile:
 
-```json
-{
-  "mcpServers": {
-    "tavily": {
-      "command": "npx",
-      "args": ["-y", "tavily-mcp"],
-      "env": {
-        "TAVILY_API_KEY": "your-api-key-here"
-      }
-    }
-  }
-}
+```sh
+export TAVILY_API_KEY="your-api-key-here"
 ```
+
+The MCP server definitions in `lua/plugins/codecompanion.lua` read the key from
+the environment, so it never needs to be stored in this repository.
 
 **Note**: Always clean `~/.local/share/nvim` and `~/.cache/nvim` when moving this config between different operating systems (e.g., Linux ↔ macOS). This ensures all binaries and cache files are rebuilt for your current platform.
 
@@ -226,8 +219,8 @@ For web search functionality in CodeCompanion, you need a Tavily API key:
 - **LSP**: Language Server Protocol support (TeXLab for LaTeX)
 - **AI Assistance**: 
   - GitHub Copilot for code completion
-  - CodeCompanion with Claude Sonnet 4.5 and GPT-4.1
-  - MCPHub integration for MCP tools
+  - CodeCompanion with Claude Sonnet 5
+  - Built-in MCP server integration
 - **LaTeX**: VimTeX with LuaLaTeX (Preview on macOS, Sioyek on Linux)
 - **Navigation**: Flash.nvim for quick jumps, Oil.nvim for file management
 - **Editing**: nvim-surround, nvim-autopairs, undotree
@@ -244,7 +237,6 @@ For web search functionality in CodeCompanion, you need a Tavily API key:
 ### AI & Completion
 - **[copilot.vim](https://github.com/github/copilot.vim)** - GitHub Copilot integration
 - **[codecompanion.nvim](https://github.com/olimorris/codecompanion.nvim)** - AI coding assistant with Claude through Copilot
-- **[mcphub.nvim](https://github.com/ravitemer/mcphub.nvim)** - MCP (Model Context Protocol) hub integration
 - **[nvim-cmp](https://github.com/hrsh7th/nvim-cmp)** - Autocompletion engine
 - **[LuaSnip](https://github.com/L3MON4D3/LuaSnip)** - Snippet engine
 
@@ -520,25 +512,27 @@ Use `<C-o>` to jump back.
 ### CodeCompanion
 
 CodeCompanion is configured with:
-- **Chat Strategy**: Claude Sonnet 4.5 (via Copilot)
-- **Inline Strategy**: GPT-4.1 (via Copilot)
-- **Agent Strategy**: Claude Sonnet 4.5 (via Copilot)
-- **MCPHub Integration**: Enabled with variables, slash commands, and chat output
-- **Web Search**: Tavily provider with advanced search depth
+- **Chat**: Claude Sonnet 5 (via Copilot)
+- **Inline**: Claude Sonnet 5 (via Copilot)
+- **MCP Servers**: Configured natively under `mcp.servers`
+- **Web Search**: Tavily adapter with advanced search depth
 
 ### GitHub Copilot
 
 - Active in all buffers (including CodeCompanion chat)
 - Integrated with CodeCompanion for model access
 
-### MCPHub
+### MCP Servers
 
-MCP (Model Context Protocol) integration for extending AI capabilities with tools and resources.
+Model Context Protocol servers extend the AI with tools and resources. They are
+defined directly in CodeCompanion's `mcp.servers` configuration, so no separate
+hub plugin is required.
 
-Commands:
-- `:MCPHub` - Open MCPHub interface
-- `:MCPServers` - List MCP servers
-- `:MCPTools` - List available MCP tools
+Configured servers: `context7`, `fetch`, `filesystem`, `sequentialthinking`,
+`time`.
+
+Servers listed in `mcp.opts.default_servers` start automatically with each chat.
+Any other server can be started on demand with the `/mcp` slash command.
 
 ## LSP Configuration
 
@@ -627,7 +621,7 @@ hello("World");
 
 - Completion style: Default
 - Telescope style: Borderless
-- Window border: Rounded (MCPHub)
+- Window border: Rounded
 
 ## Directory Structure
 
@@ -664,7 +658,6 @@ hello("World");
 │       ├── lazygit.lua        # LazyGit integration
 │       ├── lspconfig.lua      # LSP setup (TeXLab)
 │       ├── markview.lua       # Markdown preview
-│       ├── mcphub.lua         # MCP hub config
 │       ├── nvim-tree.lua      # File tree explorer
 │       ├── oil.lua            # Buffer-based file explorer
 │       ├── surround.lua       # Surround plugin
@@ -742,7 +735,6 @@ Add to individual plugin configs in `lua/plugins/` using the `keys` table or cre
 - `:Copilot status` - Check Copilot status
 - `:Copilot setup` - Setup Copilot authentication
 - `:CodeCompanionChat` - Open AI chat
-- `:MCPHub` - Open MCP hub
 
 ### File Management
 - `:Oil` - Open Oil file explorer

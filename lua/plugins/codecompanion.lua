@@ -44,24 +44,15 @@ return {
                 },
               }
             end,
-            memory = {
-              cmd = { "npx", "-y", "@modelcontextprotocol/server-memory" },
-            },
             sequentialthinking = {
               cmd = { "npx", "-y", "@modelcontextprotocol/server-sequential-thinking" },
-            },
-            tavily = {
-              cmd = { "npx", "-y", "tavily-mcp" },
-              env = {
-                TAVILY_API_KEY = "TAVILY_API_KEY",
-              },
             },
             time = {
               cmd = { "uvx", "--with", "mcp<2.0", "mcp-server-time" },
             },
           },
           opts = {
-            default_servers = { "filesystem", "context7", "sequentialthinking" },
+            default_servers = { "context7", "sequentialthinking" },
           },
         },
 
@@ -85,6 +76,9 @@ return {
                     include_raw_content = true,
                   },
                 },
+              },
+              opts = {
+                default_tools = { "files", "web_search" },
               },
             },
           },
