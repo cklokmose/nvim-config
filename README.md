@@ -519,7 +519,8 @@ CodeCompanion is configured with:
 
 ### GitHub Copilot
 
-- Active in all buffers (including CodeCompanion chat)
+- Inline suggestions are disabled by default (`vim.g.copilot_enabled = false`), toggle with `<leader>ct`
+- The Copilot LSP client still runs in the background but is hidden from the statusline
 - Integrated with CodeCompanion for model access
 
 ### MCP Servers
@@ -622,6 +623,16 @@ hello("World");
 - Completion style: Default
 - Telescope style: Borderless
 - Window border: Rounded
+
+### Tabufline (buffer tabs)
+
+The theme-toggle and close buttons in the right side of the tabline are removed
+by dropping the `btns` module from the tabufline `order` in `lua/chadrc.lua`.
+
+### Statusline
+
+The `lsp` module is overridden in `lua/chadrc.lua` so the GitHub Copilot client
+is never shown as the active LSP. Other language servers are still displayed.
 
 ## Directory Structure
 
