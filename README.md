@@ -341,6 +341,9 @@ the environment, so it never needs to be stored in this repository.
 | `<leader>tb` | N | Show backlinks |
 | `<leader>tf` | N | Find notes |
 | `<leader>tl` | N | Follow link under cursor |
+| `<leader>ts` | N | Search notes |
+| `<leader>ti` | N | Paste image and insert link |
+| `<leader>tp` | N | Preview image under cursor |
 | `<leader>cal`| N | Open calendar in vertical split |
 | `<leader>caL`| N | Open calendar in horisontal split | 
 
@@ -457,7 +460,7 @@ Use `<C-o>` to jump back.
 | Key | Mode | Description |
 |-----|------|-------------|
 | `æc` | N | Toggle cheatsheet floating window |
-| `æh` | N | Fuzzy-search help files (via Telescope) |
+| `<localleader>h` | N | Fuzzy-search help files (via Telescope) |
 | `æm` | N | Open offline OpenSCAD PDF manual (via Sioyek on Linux) |
 | `æo` | N | Open current file in OpenSCAD |
 
@@ -736,7 +739,7 @@ Add to individual plugin configs in `lua/plugins/` using the `keys` table or cre
 
 ### OpenSCAD
 - `:OpenscadCheatsheet` - Toggle the cheatsheet floating window
-- `:OpenscadHelp` - Fuzzy-search help files with fzf-lua
+- `:OpenscadHelpTelescope` - Fuzzy-search help files with Telescope
 - `:OpenscadManual` - Open the offline PDF manual
 - `:OpenscadExecFile` - Open current file in OpenSCAD
 - `:OpenscadJustfile[!]` - Deploy a justfile export template (STL, PNG, etc.) in the current directory. Use `!` to overwrite
