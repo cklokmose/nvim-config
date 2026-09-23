@@ -65,6 +65,9 @@ return {
     map("n", "<leader>ts", telekasten.search_notes,
       vim.tbl_extend("force", opts, { desc = "Telekasten: search notes"}))
 
+    map("n", "<leader>ta", telekasten.insert_link,
+      vim.tbl_extend("force", opts, { desc = "Telekasten: insert link" }))
+
     map("n", "<leader>ti", telekasten.paste_img_and_link,
       vim.tbl_extend("force", opts, { desc = "Telekasten: Paste image"}))
 

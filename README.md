@@ -342,6 +342,7 @@ the environment, so it never needs to be stored in this repository.
 | `<leader>tf` | N | Find notes |
 | `<leader>tl` | N | Follow link under cursor |
 | `<leader>ts` | N | Search notes |
+| `<leader>ta` | N | Insert link to a note |
 | `<leader>ti` | N | Paste image and insert link |
 | `<leader>tp` | N | Preview image under cursor |
 | `<leader>cal`| N | Open calendar in vertical split |
