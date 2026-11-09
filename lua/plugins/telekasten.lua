@@ -11,6 +11,15 @@ return {
     config = function()
       local telekasten = require("telekasten")
 
+      function _G.TelekastenOpenUrl(url)
+        local target = url
+        if not url:match("^%a[%w+.-]*:") and not url:match("^[/~]") then
+          local dir = vim.fn.expand("%:p:h")
+          target = vim.fn.fnamemodify(dir .. "/" .. url, ":p")
+        end
+        vim.fn.jobstart({ "open", vim.fn.expand(target) }, { detach = true })
+      end
+
       telekasten.setup({
         home = vim.fn.expand("~/notes"),
 
@@ -28,6 +37,9 @@ return {
         filename_space_subst = " ",
 
         follow_creates_nonexisting = true,
+        -- Resolve relative [text](path) links against the current note's
+        -- directory (not nvim's cwd) before handing them to the OS.
+        follow_url_fallback = "lua TelekastenOpenUrl([[{{url}}]])",
         sort = "filename",
         media_previewer = "viu-previewer",
         media_extensions = {
